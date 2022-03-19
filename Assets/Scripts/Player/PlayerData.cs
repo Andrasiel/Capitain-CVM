@@ -75,7 +75,9 @@ public class PlayerData
     public int Energie { get { return this._energie; } }
     public int Vie { get { return this._vie; } }
     public int Score { get { return this._score; } }
+    public int levelProgression { get { return this._levelProgression; } }
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
+    public string[] ListeCollectable { get { return this._collectableList.ToArray(); } }
 
     public PlayerData()
     {
@@ -204,7 +206,7 @@ public class PlayerData
     /// Ajoute le nom du collectable a la liste
     /// </summary>
     /// <param name="nom">Nom du collectable à ajouter</param>
-    public void AjouterCollectableRammassé(string nom)
+    public void AjouterCollectableRammasse(string nom)
     {
         this._collectableList.Add(nom);
     }
@@ -215,7 +217,7 @@ public class PlayerData
     /// </summary>
     /// <param name="nom">Nom du collectable à vérifier</param>
     /// <returns>true si le collectable est rammassé, false sinon</returns>
-    public bool AvoirRammasséCollectable(string nom)
+    public bool AvoirRammasseCollectable(string nom)
     {
         return this._collectableList.Contains(nom);
     }
