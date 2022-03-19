@@ -8,19 +8,21 @@ public class Collectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (string collectable in GameManager.Instance.PlayerData.ListeCollectable)
+        if(collectableName != null)
         {
-            if (GameManager.Instance.PlayerData.ListeCollectable.Equals(collectableName))
+            foreach (string collectable in GameManager.Instance.PlayerData.ListeCollectable)
             {
-                gameObject.active = false;
+                if (GameManager.Instance.PlayerData.ListeCollectable.Equals(collectableName))
+                {
+                   Destroy(gameObject);
+                }
+
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        else
+        {
+            collectableName = gameObject.name;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

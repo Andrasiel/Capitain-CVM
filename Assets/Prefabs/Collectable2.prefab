@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6948819342474517251}
   - component: {fileID: 6948819342474517260}
   - component: {fileID: 6948819342474517261}
-  - component: {fileID: 6948819342474517262}
+  - component: {fileID: -7506028684734836043}
   m_Layer: 0
-  m_Name: ConventionCollective
+  m_Name: Collectable2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6130306545bc91a48a0658a08560884d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9370d460f7fbfce478c4ebafd52980ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.06, y: 2.06}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 2.06, y: 2.06}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5468578, y: 1.9573708}
   m_EdgeRadius: 0
---- !u!114 &6948819342474517262
+--- !u!114 &-7506028684734836043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,8 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6948819342474517263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7914e539275c4bf439b695124950ca8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 28d9646c393fe754880efacc6d04c9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gainPoint: 3
-  _clip: {fileID: 8300000, guid: 766a6737ab384a244b54f977c968f105, type: 3}
+  collectableName: Ruby
