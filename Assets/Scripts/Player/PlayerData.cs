@@ -46,6 +46,14 @@ public class PlayerData
     /// </summary>
     private List<string> _chestOpenList;
     /// <summary>
+    /// Liste des collectables répupérés dans le jeu
+    /// </summary>
+    private List<string> _collectableList;
+    /// <summary>
+    /// Dernier niveau complété
+    /// </summary>
+    private int _levelProgression;
+    /// <summary>
     /// Représente le maximum d'énergie du personnage
     /// </summary>
     public const int MAX_ENERGIE = 4;
@@ -81,12 +89,14 @@ public class PlayerData
         this.UIPerteVie = null;
         this.Gameover = null;
         this._chestOpenList = new List<string>();
+        this._collectableList = new List<string>();
+        this._levelProgression = 1;
     }
 
     public PlayerData(int vie = 1, int energie = 2, int score = 0,
         float volumeGeneral = 0, float volumeMusique = 0, float volumeEffet = 0,
         System.Action uiPerteEnergie = null, System.Action uiPerteVie = null,
-        System.Action gameOver = null, List<string> ChestList = null)
+        System.Action gameOver = null, List<string> ChestList = null, List<string> CollectableList = null, int levelProgression = 1)
     {
         this._vie = vie;
         this._energie = energie;
@@ -100,6 +110,9 @@ public class PlayerData
         this._chestOpenList = new List<string>();
         if (ChestList != null)
             this._chestOpenList = ChestList;
+        if (CollectableList != null)
+            this._collectableList = CollectableList;
+        
     }
 
     /// <summary>
@@ -186,4 +199,33 @@ public class PlayerData
     {
         return this._chestOpenList.Contains(nom);
     }
+
+    /// <summary>
+    /// Ajoute le nom du collectable a la liste
+    /// </summary>
+    /// <param name="nom">Nom du collectable à ajouter</param>
+    public void AjouterCollectableRammassé(string nom)
+    {
+        this._collectableList.Add(nom);
+    }
+
+    /// <summary>
+    /// Détermine si le collectable est contenu dans la liste
+    /// des collectables rammassés
+    /// </summary>
+    /// <param name="nom">Nom du collectable à vérifier</param>
+    /// <returns>true si le collectable est rammassé, false sinon</returns>
+    public bool AvoirRammasséCollectable(string nom)
+    {
+        return this._collectableList.Contains(nom);
+    }
+
+    /// <summary>
+    /// Ajoute 1 niveau dans la progression du joueur
+    /// </summary>
+    public void AjouterNiveau()
+    {
+        this._levelProgression += 1;
+    }
+
 }

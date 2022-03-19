@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 /// <summary>
 /// Offre un moteur de lecture/écriture du JSON
 /// pour l'objet <code>PlayerData</code>
@@ -10,34 +11,41 @@ public static class PlayerDataJson
     /// </summary>
     /// <param name="data">Paramètre à sérialiser</param>
     /// <returns>La chaîne contenant le format JSON</returns>
+    //public static string WriteJson(PlayerData data)
+    //{
+    //    string tab = "\t";
+    //    string newline = "\n";
+    //    string json = "{" + newline;
+    //    json += tab + "\"vie\":" + data.Vie + "," + newline;
+    //    json += tab + "\"energie\":" + data.Energie + "," + newline;
+    //    json += tab + "\"score\":" + data.Score + "," + newline;
+    //    json += tab + "\"volumeGeneral\":" + data.VolumeGeneral.ToString().Replace(',', '.') + "," + newline; 
+    //    json += tab + "\"volumeMusique\":" + data.VolumeMusique.ToString().Replace(',', '.') + "," + newline; 
+    //    json += tab + "\"volumeEffet\":" + data.VolumeEffet.ToString().Replace(',', '.') + "," + newline; 
+    //    json += tab + "\"chestOpenList\":[";
+    //    if (data.ListeCoffreOuvert.Length > 0)
+    //    {
+    //        json += newline;
+    //        for (int i = 0; i < data.ListeCoffreOuvert.Length; i++)
+    //        {
+    //            string chestData = data.ListeCoffreOuvert[i];
+    //            json += tab + tab + "\"" + chestData + "\"";
+    //            if (i + 1 < data.ListeCoffreOuvert.Length)
+    //                json += ",";
+    //            json += newline;
+    //        }
+    //        json += tab + "]" + newline;
+    //    }
+    //    else json += "]" + newline;
+    //    json += "}";
+    //    return json;
+    //}
+
+
+    //Utilisation de JsonUtility car bien plus simple a gérer et moins capilotracté que la méthode précédente
     public static string WriteJson(PlayerData data)
     {
-        string tab = "\t";
-        string newline = "\n";
-        string json = "{" + newline;
-        json += tab + "\"vie\":" + data.Vie + "," + newline;
-        json += tab + "\"energie\":" + data.Energie + "," + newline;
-        json += tab + "\"score\":" + data.Score + "," + newline;
-        json += tab + "\"volumeGeneral\":" + data.VolumeGeneral.ToString().Replace(',', '.') + "," + newline; 
-        json += tab + "\"volumeMusique\":" + data.VolumeMusique.ToString().Replace(',', '.') + "," + newline; 
-        json += tab + "\"volumeEffet\":" + data.VolumeEffet.ToString().Replace(',', '.') + "," + newline; 
-        json += tab + "\"chestOpenList\":[";
-        if (data.ListeCoffreOuvert.Length > 0)
-        {
-            json += newline;
-            for (int i = 0; i < data.ListeCoffreOuvert.Length; i++)
-            {
-                string chestData = data.ListeCoffreOuvert[i];
-                json += tab + tab + "\"" + chestData + "\"";
-                if (i + 1 < data.ListeCoffreOuvert.Length)
-                    json += ",";
-                json += newline;
-            }
-            json += tab + "]" + newline;
-        }
-        else json += "]" + newline;
-        json += "}";
-        return json;
+        return JsonUtility.ToJson(data);
     }
 
     /// <summary>

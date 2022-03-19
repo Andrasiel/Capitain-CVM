@@ -9,7 +9,20 @@ public class FinDeNiveau : MonoBehaviour
         {
             Debug.Log("Félicitation, le niveau est terminé.");
             GameManager.Instance.SaveData();
-            SceneManager.LoadScene("MainMenu");
+
+            if(SceneManager.GetActiveScene().name == "Level3")
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
+                GameManager.Instance.PlayerData.AjouterNiveau();
+                GameManager.Instance.SaveData();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+            }
+            
+            
         }
     }
 }
