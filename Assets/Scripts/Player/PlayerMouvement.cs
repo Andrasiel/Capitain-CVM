@@ -36,6 +36,12 @@ public class PlayerMouvement : MonoBehaviour
     private float _forceSaut = 300f;
 
     /// <summary>
+    /// Force du rebond du joueur
+    /// </summary>
+    [SerializeField, Range(0, 25f)]
+    private float _bumpForce = 3f;
+
+    /// <summary>
     /// Trigger pour savoir si le personnage saute
     /// </summary>
     private bool _vaSaute = false;
@@ -174,5 +180,10 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (_enMonte)
             this._direction = Vector2.zero;
+    }
+
+    public void Bump()
+    {
+        _rb.AddForce(transform.up * _bumpForce, ForceMode2D.Impulse);
     }
 }

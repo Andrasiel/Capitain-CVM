@@ -82,6 +82,8 @@ public class EnnemyBehaviour : MonoBehaviour
                 _animator.SetTrigger("DegatActif");
                 _tempsDebutInvulnerabilite = Time.fixedTime;
                 _invulnerable = true;
+                collision.gameObject.GetComponent<PlayerMouvement>().Bump();
+                
             }
         }
     }
