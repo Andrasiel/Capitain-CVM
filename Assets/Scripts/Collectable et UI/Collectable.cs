@@ -12,9 +12,11 @@ public class Collectable : MonoBehaviour
         {
             foreach (string collectable in GameManager.Instance.PlayerData.ListeCollectable)
             {
+                Debug.Log(GameManager.Instance.PlayerData.ListeCollectable);
+                Debug.Log(collectableName);
                 if (GameManager.Instance.PlayerData.ListeCollectable.Equals(collectableName))
                 {
-                   Destroy(gameObject);
+                    Destroy(gameObject);
                 }
 
             }
@@ -29,6 +31,7 @@ public class Collectable : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            Debug.Log(collectableName);
             GameManager.Instance.PlayerData.AjouterCollectableRammasse(collectableName);
             Destroy(gameObject);
         }

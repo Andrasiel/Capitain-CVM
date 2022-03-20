@@ -39,7 +39,7 @@ public class PlayerMouvement : MonoBehaviour
     /// Force du rebond du joueur
     /// </summary>
     [SerializeField, Range(0, 25f)]
-    private float _bumpForce = 4f;
+    private float _bumpForce = 25f;
 
     /// <summary>
     /// Trigger pour savoir si le personnage saute

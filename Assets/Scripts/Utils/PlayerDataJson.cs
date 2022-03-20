@@ -6,6 +6,10 @@ using UnityEngine;
 /// </summary>
 public static class PlayerDataJson
 {
+
+    // A été fait en collaboration avec Quentin Freire Novo et Luca Reymann
+
+
     /// <summary>
     /// Sérialise un objet de type PlayerData au format JSON
     /// </summary>
@@ -72,8 +76,8 @@ public static class PlayerDataJson
     //Utilisation de JsonUtility car bien plus simple a gérer et moins capilotracté que la méthode précédente
     public static string WriteJson(PlayerData data)
     {
-        PlayerDataToJson jsonize = new PlayerDataToJson(data.Vie, data.Energie, data.Score, data.VolumeGeneral, data.VolumeMusique, data.VolumeEffet, data.ListeCoffreOuvert, data.ListeCollectable, data.levelProgression);
-        return JsonUtility.ToJson(jsonize);
+        PlayerDataToJson pdtj = new PlayerDataToJson(data.Vie, data.Energie, data.Score, data.VolumeGeneral, data.VolumeMusique, data.VolumeEffet, data.ListeCoffreOuvert, data.ListeCollectable, data.levelProgression);
+        return JsonUtility.ToJson(pdtj);
     }
 
 
@@ -81,11 +85,8 @@ public static class PlayerDataJson
     {
 
         PlayerDataToJson pdtj = JsonUtility.FromJson<PlayerDataToJson>(json);
-        Debug.Log(pdtj);
 
         List<string> chests = new List<string>();
-
-
 
         for (int i = 0; i < pdtj.chestOpenList.Length; i++)
         {

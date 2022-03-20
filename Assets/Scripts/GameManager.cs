@@ -68,19 +68,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator SaveData(PlayerData data)
     {
         using (StreamWriter stream = new StreamWriter(
-            Path.Combine(Application.persistentDataPath, "savedata_encrypt_3.json"),
+            Path.Combine(Application.persistentDataPath, "savedata_encrypt_5.json"),
             false, System.Text.Encoding.UTF8))
         {
             //DataManipulator manipulator = new DataManipulator();
             stream.Write(/*manipulator.Encrypt(*/PlayerDataJson.WriteJson(data)/*)*/);
-            Debug.Log(Path.Combine(Application.persistentDataPath, "savedata_encrypt_3.json"));
+            Debug.Log(Path.Combine(Application.persistentDataPath, "savedata_encrypt_5.json"));
         }
         yield return new WaitForEndOfFrame();
     }
 
     private void LoadPlayerData()
     {
-        string path = Path.Combine(Application.persistentDataPath, "savedata_encrypt_3.json");
+        string path = Path.Combine(Application.persistentDataPath, "savedata_encrypt_5.json");
         if (File.Exists(path))
         {
             using (StreamReader stream = new StreamReader(path,
@@ -138,4 +138,6 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+
 }

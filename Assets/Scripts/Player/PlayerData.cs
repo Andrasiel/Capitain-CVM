@@ -79,6 +79,7 @@ public class PlayerData
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
     public string[] ListeCollectable { get { return this._collectableList.ToArray(); } }
 
+
     public PlayerData()
     {
         this._vie = 0;
@@ -225,9 +226,11 @@ public class PlayerData
     /// <summary>
     /// Ajoute 1 niveau dans la progression du joueur
     /// </summary>
-    public void AjouterNiveau()
+    public void UpdateLevelProgression()
     {
         this._levelProgression += 1;
+        if(this._levelProgression > 3)
+            _levelProgression = 3;
     }
 
 }
