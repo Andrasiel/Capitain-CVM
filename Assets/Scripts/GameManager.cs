@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         SaveData();
         SceneManager.activeSceneChanged += ChangementScene;
         ChangementScene(new Scene(), SceneManager.GetActiveScene());
+        Debug.Log(this._playerData.levelProgression);
         //List<string> cl = new List<string>();
         //cl.Add("test_1");
         //cl.Add("test_2");
@@ -88,9 +89,16 @@ public class GameManager : MonoBehaviour
             {
                 /*DataManipulator manipulator = new DataManipulator();*/
                 this._playerData = PlayerDataJson.ReadJson(/*manipulator.Decrypt(*/stream.ReadToEnd())/*)*/;
+                
             }
             //DataManipulator manipulator = new DataManipulator();
             //this._playerData = manipulator.Decrypt(path);
+            
+            foreach(string line in this._playerData.ListeCollectable)
+            {
+                Debug.Log(line);
+            }
+            Debug.Log(this._playerData.levelProgression);
         }
         else
         {

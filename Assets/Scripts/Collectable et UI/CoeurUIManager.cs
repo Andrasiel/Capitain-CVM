@@ -54,4 +54,10 @@ public class CoeurUIManager : MonoBehaviour
     {
         this._texteVie.text = GameManager.Instance.PlayerData.Vie.ToString();
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.PlayerData.UIPerteEnergie -= ModifierEnergie;
+        GameManager.Instance.PlayerData.UIPerteVie -= ModifierVie;
+    }
 }

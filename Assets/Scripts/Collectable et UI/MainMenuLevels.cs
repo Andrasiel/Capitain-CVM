@@ -29,7 +29,7 @@ public class MainMenuLevels : MonoBehaviour
         }
 
         // Activation des boutons selon la progression du joueur.
-        for (int i = 0; i <= GameManager.Instance.PlayerData.levelProgression; i++)
+        for (int i = 0; i < GameManager.Instance.PlayerData.levelProgression; i++)
         {
             buttons[i].interactable = true;
         }

@@ -71,11 +71,11 @@ public class EnnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            collision.gameObject.GetComponent<PlayerMouvement>().Bump();
             if (!_invulnerable)
             {
                 this._pv--;
                 _animator.SetTrigger("DegatActif");
-                collision.gameObject.GetComponent<PlayerMouvement>().Bump();
                 _tempsDebutInvulnerabilite = Time.fixedTime;
                 _invulnerable = true;
                 

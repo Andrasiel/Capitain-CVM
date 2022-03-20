@@ -20,6 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void Start()
     {
         _animator = this.gameObject.GetComponent<Animator>();
+        Debug.Log(GameManager.Instance.PlayerData.levelProgression);
     }
 
     private void Update()

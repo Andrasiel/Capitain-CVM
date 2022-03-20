@@ -115,6 +115,7 @@ public class PlayerData
             this._chestOpenList = ChestList;
         if (CollectableList != null)
             this._collectableList = CollectableList;
+        this._levelProgression = levelProgression;
         
     }
 
@@ -229,7 +230,7 @@ public class PlayerData
     public void UpdateLevelProgression()
     {
         this._levelProgression += 1;
-        if(this._levelProgression > 3)
+        if(this._levelProgression >= 3)
             _levelProgression = 3;
     }
 

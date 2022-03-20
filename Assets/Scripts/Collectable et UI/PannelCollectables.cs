@@ -9,6 +9,8 @@ public class PannelCollectables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
+
+
         foreach(GameObject container in containersCollectable)
         {
             foreach (string collectable in GameManager.Instance.PlayerData.ListeCollectable)
@@ -17,19 +19,10 @@ public class PannelCollectables : MonoBehaviour
                 {
                     container.SetActive(true);
                 }
-                else
-                {
-                    container.SetActive(false);
-                }
             }
                     
         }
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
